@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel ='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arino' rel ='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel ='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel ='stylesheet' type='text/css'>
+    <link rel ="stylesheet" href="{{ url_for(filename='styles.css')}}">
+
+    <style>
+        body{
+            background-image:url("https://plus.unsplash.com/premium_photo-1661811677567-6f14477aa1fa?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            margin-top: 100px;
+            margin-bottom:100px ;
+            margin-left:500px;
+            margin-right:150px;
+        }
+        h1{
+            margin-left:100px;
+
+        }
+        input{
+            width:70%;
+            padding:12px 20px;
+            margin:8px 0;
+            box-sizing:border-box;
+            border-bottom: 4px solid black;
+        }
+        button{
+            background-color:#4CAF50 ;
+            margin: auto;
+            color:white;
+            padding: 15px 100 px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 170px;
+        }
+        #predi{
+            margin-left: 60px;
+            color: white;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div class="Login">
+    <h1>Crop Prediction Model</h1>
+    <form action = "{{url_for('predict')}}" method = "post">
+    <input type = "text" name = "Nitrogen" placeholder="Nitrogen " required = "required"/>
+        <input type = "text" name = "Phosphorous" placeholder="Phosphorous " required = "required"/>
+        <input type = "text" name = "Potassium" placeholder="Potassium " required = "required"/>
+        <input type = "text" name = "Temperature" placeholder="Temperature " required = "required"/>
+        <input type = "text" name = "Humidity" placeholder="Humidity " required = "required"/>
+        <input type = "text" name = "pH " placeholder="pH " required = "required"/>
+        <input type = "text" name = "Rainfall " placeholder="Rainfall" required = "required"/>
+
+        <button type="submit" class="btn btn-primaary btn-block btn-large">Predict</button>
+    </form>
+
+    <h1 id = "predi">
+        {{prediction_text}}
+    </h1>
+</div>
+</body>
+</html>
